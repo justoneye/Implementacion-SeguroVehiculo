@@ -53,9 +53,12 @@ Build the home, portfolio, project and contact pages for a developer agency, wit
 
 
 ## EXTRA QUESTIONS:
-- Add the backend architecture you would use for the theme.
-- From the above, evaluate if what you propose is the most efficient, or if it seems to you that there are ways easier to deploy.
-- What AI tools would you use to improve code performance?
+1. Add the backend architecture you would use for the theme.
+<br /> _R/:_
+3. From the above, evaluate if what you propose is the most efficient, or if it seems to you that there are ways easier to deploy.
+<br /> _R/:_
+4. What AI tools would you use to improve code performance?
+<br /> _R/:_
 
 
 ## GitHub Repository
