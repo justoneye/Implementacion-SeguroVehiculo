@@ -18,12 +18,10 @@ _Completed by por: Pilar Camargo Márquez_
 
 ```
 Implementacion-SeguroVehiculo/
-├── styles/
-|   └── styles.css
-|   └── ...
 ├── multimedia/
 |   └── images, logo, favicon...
 └── index.html
+└── styles.css
 └── README.md
   
 ```
