@@ -23,9 +23,6 @@ Implementacion-SeguroVehiculo/
 |   └── ...
 ├── multimedia/
 |   └── images, logo, favicon...
-└── contact.html
-└── e-commerce.html
-└── project.html
 └── index.html
 └── README.md
   
@@ -46,8 +43,7 @@ Build the home, portfolio, project and contact pages for a developer agency, wit
 
 ## Deliverables
 
-- [x] .zip file containing HTML, CSS, JavaScript and images used in the article
-- [x] Screenshots of how it appears in your device/s
+- [x] File containing HTML, CSS and JavaScript .
 
 <br />
 
