@@ -23,26 +23,26 @@
     <div class="row">
       <form class="insurance-data">
         <div class="row">       
-          <label for="insurance">¿Qué tipo de seguro quieres?</label>
-
+          
+          <label for="insuranceType">¿Qué tipo de seguro quieres?</label>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insurance" value="car"> Auto
+            <input type="radio" name="insuranceType" value="car"> Auto </label>
           </div>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insurance" value="moto"> Moto
+            <input type="radio" name="insuranceType" value="moto"> Moto </label>
           </div>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insurance" value="tech"> Tecnología
+            <input type="radio" name="insuranceType" value="tech"> Tecnología </label>
           </div>
 
           <hr style="border:2px">
 
           <div class="col-lg-6 col-sm-12">
-            <input type="text" class="form-control insurance-data my-3" id="firstName" placeholder="Nombre">
+            <input type="text" class="form-control insurance-data my-3" id="firstName" placeholder="Nombre" required>
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <input type="text" class="form-control insurance-data my-3" id="lastName" placeholder="Apellido">
+            <input type="text" class="form-control insurance-data my-3" id="lastName" placeholder="Apellido" required>
           </div>  
 
           <div class="col-lg-6 col-sm-12">
@@ -54,11 +54,11 @@
           </div>
 
           <div class="col-12">
-            <input type="date" class="form-control insurance-data my-3" id="birthday" placeholder="Fecha de Nacimiento">
+            <input type="date" class="form-control insurance-data my-3" id="birthday" placeholder="Fecha de Nacimiento" required>
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <select class="form-control form-select insurance-data my-3" id="occupation" placeholder="Ocupación">
+            <select class="form-control form-select insurance-data my-3" id="occupation" placeholder="Ocupación" required>
               <option value="employee">Empleado</option>
               <option value="pensioner">Pensionado</option>
               <option value="selfEmployed">Independiente</option>
@@ -66,14 +66,14 @@
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <input type="number" class="form-control insurance-data my-3" id="income" placeholder="Ingresos">
+            <input type="number" class="form-control insurance-data my-3" id="income" placeholder="Ingresos" required>
           </div>
 
           <div class="col-12">
-            <input type="number" class="form-control insurance-data my-3" id="valuation" placeholder="Avalúo">
+            <input type="number" class="form-control insurance-data my-3" id="valuation" placeholder="Avalúo" required>
           </div>
 
-          <input type="submit" class="form-control insurance-data my-5 btn btn-outline-light" value="Cotizar" onclick="submitData()">
+          <input type="submit" class="form-control insurance-data my-5 btn btn-outline-light" value="Cotizar" onclick="getInsurance()">
       </form> 
     </div>
   </section>
@@ -81,8 +81,6 @@
   <section class="options" id="options">
     <h1 id="clientName">
     </h1>
-    <h6>
-    </h6>
 
     <div class="card">
       <div class="card-body">
@@ -95,21 +93,31 @@
   </section>
 
   <script>
-    function visible() {
-      document.getElementById('options').style.display='none';
+    function getAge(birthday) {
+      var today = new Date();
+      var birthDate = new Date(birthday);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+          }
+
+      return age;
     }
 
-    function submitData() {
+    function getInsurance() {
       document.getElementById("insurance-data").submit();
       document.getElementById('options').style.visibility='visible';
 
+      var clientType = document.querySelector('input[name="insuranceType"]:checked');
       var clientFirstName = document.getElementById('firstName').value;
       var clientLastname = document.getElementById('lastName').value;
       var client = clientFirstName + ' ' + clientLastname;
       document.getElementById('clientName').innerText = client;
 
 
-      var clientBirthday = document.getElementById('birthday').value;
+      var clientBirthday = getAge(document.getElementById('birthday').value);
       var clientOccupation = document.getElementById('occupation').value;
       var clientIncome =  parseInt(document.getElementById('income').value);
       var clientValuation =  parseInt(document.getElementById('valuation').value);
