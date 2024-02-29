@@ -52,17 +52,18 @@ Implementacion-SeguroVehiculo/
 
 ## EXTRA QUESTIONS
 #### 1. Suggest a backend architecture you would use for the theme.
+_R/:_
 <div align="center">
     <img src="Architecture.drawio.png" width="35%"/>
 </div>
+<br /><br />
 
 #### 2. Evaluate if what you propose is the most efficient, or if it seems to you that there are ways easier to deploy.
-_Any algorithm is susceptible to being changed and optimized, in this case, it would have proposed to create the insurance card information in a JSON file along with the characteristics, variables and percentages to make the calculations for each offer. In addition to creating a better user interface, using a framework to manage states and calculate offers in parallel with filling out the form._
+_R/: Any algorithm is susceptible to being changed and optimized, in this case, it would have proposed to create the insurance card information in a JSON file along with the characteristics, variables and percentages to make the calculations for each offer. In addition to creating a better user interface, using a framework to manage states and calculate offers in parallel with filling out the form._
 <br /><br />
 
 #### 3. What AI tools would you use to improve code performance?_
-<br /><br />
-_Along with GitHub Copilot and ChatGPT, add tools that suggest code optimizations, bug fixes, code minification, and optimization with multimedia content._
+_R/: Along with GitHub Copilot and ChatGPT, add tools that suggest code optimizations, bug fixes, code minification, and optimization with multimedia content._
 <br /><br />
 
 
