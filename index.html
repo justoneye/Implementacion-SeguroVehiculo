@@ -61,21 +61,21 @@
           </div>
 
           <div class="col-12">
-            <input type="number" class="form-control insurance-data my-3" id="value" placeholder="Avalúo">
+            <input type="number" class="form-control insurance-data my-3" id="valuation" placeholder="Avalúo">
           </div>
 
-          <input type="submit" class="form-control insurance-data my-5 btn btn-outline-light" value="Cotizar">
+          <input type="submit" class="form-control insurance-data my-5 btn btn-outline-light" value="Cotizar" onclick="submitData()">
       </form> 
     </div>
   </section>
 
   <section class="options" id="options">
-    <h1>
+    <h1 id="clientName">
     </h1>
     <h6>
     </h6>
 
-    <div class="card w-33">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -84,5 +84,28 @@
       </div>
     </div>
   </section>
+
+  <script>
+    function visible() {
+      document.getElementById('options').style.display='none';
+    }
+
+    function submitData() {
+      document.getElementById("insurance-data").submit();
+      document.getElementById('options').style.visibility='visible';
+
+      var clientFirstName = document.getElementById('firstName').value;
+      var clientLastname = document.getElementById('lastName').value;
+      var client = clientFirstName + ' ' + clientLastname;
+      document.getElementById('clientName').innerText = client;
+
+
+      var clientBirthday = document.getElementById('birthday').value;
+      var clientOccupation = document.getElementById('occupation').value;
+      var clientIncome =  parseInt(document.getElementById('income').value);
+      var clientValuation =  parseInt(document.getElementById('valuation').value);
+    }
+    </script>
+
 </body>
 </html>
