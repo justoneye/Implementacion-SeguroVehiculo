@@ -50,10 +50,12 @@ Implementacion-SeguroVehiculo/
 
 <br />
 
-
 ## EXTRA QUESTIONS
 1. Suggest a backend architecture you would use for the theme.
 <br /> _R/:_
+<div align="center">
+    <img src="https://raw.githubusercontent.com/justoneye/Implementacion-SeguroVehiculo/blob/main/Architecture.drawio.png" alt="justoneye peacock banner" width="100%"/>
+</div>
 3. Evaluate if what you propose is the most efficient, or if it seems to you that there are ways easier to deploy.
 <br /> _R/:_
 4. What AI tools would you use to improve code performance?
