@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  color: white; 
 }
 
 section {
@@ -13,12 +14,8 @@ h1, h6 {
 }
 
 input {
-  color: transparent !important;
+  color: transparent;
   border: white;
-}
-
-body {
-  color: white; 
 }
 
 hr {
