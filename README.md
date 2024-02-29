@@ -54,7 +54,7 @@ Implementacion-SeguroVehiculo/
 1. Suggest a backend architecture you would use for the theme.
 <br /> _R/:_
 <div align="center">
-    <img src="https://raw.githubusercontent.com/justoneye/Implementacion-SeguroVehiculo/blob/main/Architecture.drawio.png" width="100%"/>
+    <img src="Architecture.drawio.png" width="100%"/>
 </div>
 3. Evaluate if what you propose is the most efficient, or if it seems to you that there are ways easier to deploy.
 <br /> _R/:_
