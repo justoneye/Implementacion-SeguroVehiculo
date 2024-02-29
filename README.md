@@ -11,7 +11,7 @@ _Completed by: Pilar Camargo Márquez_
 - HTML 5
 - CSS 3
 - JavaScript
-- 
+
 <br />
 
 
@@ -46,7 +46,7 @@ Implementacion-SeguroVehiculo/
 ## Deliverables
 
 - [x] File containing HTML, CSS and JavaScript.
-- [ ] Additional questions.
+- [x] Additional questions.
 
 <br />
 
