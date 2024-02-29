@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles.css">
 
-  <title>Seguro de Vehículo</title>
+  <title>Seguro de Vida</title>
 </head>
 
 <body>
@@ -81,15 +81,6 @@
   <section class="options" id="options">
     <h1 id="clientName">
     </h1>
-
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <hr style="border:2px">
-        <button type="button" class="btn btn-outline-light btn-sm">Solicitar</button>
-      </div>
-    </div>
   </section>
 
   <script>
@@ -97,23 +88,59 @@
       var today = new Date();
       var birthDate = new Date(birthday);
       var age = today.getFullYear() - birthDate.getFullYear();
-      var m = today.getMonth() - birthDate.getMonth();
+      var month = today.getMonth() - birthDate.getMonth();
       
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
         age--;
-          }
+      }
 
       return age;
     }
 
+    function createCard(style, type, coverage, commission) {
+      return `
+        <iframe>
+          <div class="card ${style}">
+            <div class="card-body">
+              <h5 class="card-title">Seguro ${type}</h5>
+              <p class="card-text">
+                <p>Valor Anual: ${((coverage + commission) - (0.5 * (coverage + commission))).toFixed(2)}</p>
+                <p>Valor Mensual: ${(((coverage / 12) + commission) - (0.5 * ((coverage / 12) + commission))).toFixed(2)}</p>
+              </p>
+              <button type="button" class="btn btn-outline-light btn-sm">Solicitar</button>
+            </div>
+          </div>
+        </iframe>
+      `;
+    }
+
+    function getOptions() {
+      var insOptions = document.getElementById('options');
+
+      if (age >= 18 && age <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
+        insOptions.innerHTML += createCard('basic', "Básico", clientValuation * 0.3, clientIncome * 0.05);
+      }
+
+      if ((insuranceType && (insuranceType.value === "auto" || insuranceType.value === "moto")) && age >= 18 && age <= 80 && (clientOccupation === "empleado" || clientOccupation === "pensionado") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
+        insOptions.innerHTML += createCard('gold', "Gold",  clientValuation * 0.6, clientIncome * 0.05);
+      }
+
+      if (age >= 18 && age <= 50 && clientOccupation === "empleado" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
+        insOptions.innerHTML += createCard('black', "Black",  clientValuation * 0.9, clientIncome * 0.05);
+      }
+
+      else {
+        insOptions.innerHTML = `<h6> Lamentablemente en estos momentos no tenemos un seguro que se ajuste a tus necesidades. </h6>`;
+      }
+    }
+
     function getInsurance() {
       document.getElementById("insurance-data").submit();
-      document.getElementById('options').style.visibility='visible';
 
       var clientType = document.querySelector('input[name="insuranceType"]:checked');
       var clientFirstName = document.getElementById('firstName').value;
       var clientLastname = document.getElementById('lastName').value;
-      var client = clientFirstName + ' ' + clientLastname;
+      var clientName = clientFirstName + ' ' + clientLastname;
       document.getElementById('clientName').innerText = client;
 
 
@@ -121,6 +148,8 @@
       var clientOccupation = document.getElementById('occupation').value;
       var clientIncome =  parseInt(document.getElementById('income').value);
       var clientValuation =  parseInt(document.getElementById('valuation').value);
+
+      getOptions();
     }
     </script>
 
