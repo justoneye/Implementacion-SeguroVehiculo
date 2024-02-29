@@ -118,15 +118,15 @@
       var insOptions = document.getElementById('options');
 
       if (age >= 18 && age <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
-        insOptions.innerHTML += createCard('basic', "Básico", clientValuation * 0.3, clientIncome * 0.05);
+        insOptions.innerHTML += createCard('basic', " Básico", clientValuation * 0.3, clientIncome * 0.05);
       }
 
-      if ((insuranceType && (insuranceType.value === "auto" || insuranceType.value === "moto")) && age >= 18 && age <= 80 && (clientOccupation === "empleado" || clientOccupation === "pensionado") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
-        insOptions.innerHTML += createCard('gold', "Gold",  clientValuation * 0.6, clientIncome * 0.05);
+      if ((insuranceType && (insuranceType.value === "car" || insuranceType.value === "moto")) && age >= 18 && age <= 80 && (clientOccupation === "employee" || clientOccupation === "pensioner") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
+        insOptions.innerHTML += createCard('gold', " Gold",  clientValuation * 0.6, clientIncome * 0.05);
       }
 
-      if (age >= 18 && age <= 50 && clientOccupation === "empleado" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
-        insOptions.innerHTML += createCard('black', "Black",  clientValuation * 0.9, clientIncome * 0.05);
+      if (age >= 18 && age <= 50 && clientOccupation === "employee" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
+        insOptions.innerHTML += createCard('black', " Black",  clientValuation * 0.9, clientIncome * 0.05);
       }
 
       else {
