@@ -19,15 +19,17 @@
     <h1>
       Encuentra tu seguro
     </h1>
-    <h6>
-      ¿Qué tipo de seguro quieres?
-    </h6>
-
-    <hr style="border:2px">
 
     <div class="row">
       <form class="insurance-data">
-        <div class="row">
+        <div class="row">       
+          <label for="insurance">¿Qué tipo de seguro quieres?</label>
+          <input type="radio" name="insurance" value="car"> Auto
+          <input type="radio" name="insurance" value="moto"> Moto
+          <input type="radio" name="insurance" value="tech"> Tecnología
+
+          <hr style="border:2px">
+
           <div class="col-lg-6 col-sm-12">
             <input type="text" class="form-control insurance-data my-3" id="firstName" placeholder="Nombre">
           </div>
