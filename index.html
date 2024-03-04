@@ -21,7 +21,7 @@
     </h1>
 
     <div class="row">
-      <form class="insurance-data">
+      <form id="insuranceData">
         <div class="row">       
           
           <label for="insuranceType">¿Qué tipo de seguro quieres?</label>
@@ -38,27 +38,27 @@
           <hr style="border:2px">
 
           <div class="col-lg-6 col-sm-12">
-            <input type="text" class="form-control insurance-data my-3" id="firstName" placeholder="Nombre" required>
+            <input type="text" class="form-control insuranceData my-3" id="firstName" placeholder="Nombre" required>
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <input type="text" class="form-control insurance-data my-3" id="lastName" placeholder="Apellido" required>
+            <input type="text" class="form-control insuranceData my-3" id="lastName" placeholder="Apellido" required>
           </div>  
 
           <div class="col-lg-6 col-sm-12">
-            <input type="tel" class="form-control insurance-data my-3" id="phone" placeholder="Teléfono">
+            <input type="tel" class="form-control insuranceData my-3" id="phone" placeholder="Teléfono">
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <input type="email" class="form-control insurance-data my-3" id="email" placeholder="E-mail">
+            <input type="email" class="form-control insuranceData my-3" id="email" placeholder="E-mail">
           </div>
 
           <div class="col-12">
-            <input type="date" class="form-control insurance-data my-3" id="birthday" placeholder="Fecha de Nacimiento" required>
+            <input type="date" class="form-control insuranceData my-3" id="birthday" placeholder="Fecha de Nacimiento" required>
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <select class="form-control form-select insurance-data my-3" id="occupation" placeholder="Ocupación" required>
+            <select class="form-control form-select insuranceData my-3" id="occupation" placeholder="Ocupación" required>
               <option value="employee">Empleado</option>
               <option value="pensioner">Pensionado</option>
               <option value="selfEmployed">Independiente</option>
@@ -66,14 +66,14 @@
           </div>
 
           <div class="col-lg-6 col-sm-12">
-            <input type="number" class="form-control insurance-data my-3" id="income" placeholder="Ingresos" required>
+            <input type="number" class="form-control insuranceData my-3" id="income" placeholder="Ingresos" required>
           </div>
 
           <div class="col-12">
-            <input type="number" class="form-control insurance-data my-3" id="valuation" placeholder="Avalúo" required>
+            <input type="number" class="form-control insuranceData my-3" id="valuation" placeholder="Avalúo" required>
           </div>
 
-          <input type="submit" class="form-control insurance-data my-5 btn btn-outline-light" value="Cotizar" onclick="getInsurance()">
+          <input type="submit" class="form-control insuranceData my-5 btn btn-outline-light" value="Cotizar" onclick="getInsurance()">
       </form> 
     </div>
   </section>
@@ -118,15 +118,15 @@
       var insOptions = document.getElementById('options');
 
       if (age >= 18 && age <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
-        insOptions.innerHTML += createCard('basic', " Básico", clientValuation * 0.3, clientIncome * 0.05);
+        insOptions.innerHTML += createCard('basic', "Básico", clientValuation * 0.3, clientIncome * 0.05);
       }
 
       if ((insuranceType && (insuranceType.value === "car" || insuranceType.value === "moto")) && age >= 18 && age <= 80 && (clientOccupation === "employee" || clientOccupation === "pensioner") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
-        insOptions.innerHTML += createCard('gold', " Gold",  clientValuation * 0.6, clientIncome * 0.05);
+        insOptions.innerHTML += createCard('gold', "Gold",  clientValuation * 0.6, clientIncome * 0.05);
       }
 
       if (age >= 18 && age <= 50 && clientOccupation === "employee" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
-        insOptions.innerHTML += createCard('black', " Black",  clientValuation * 0.9, clientIncome * 0.05);
+        insOptions.innerHTML += createCard('black', "Black",  clientValuation * 0.9, clientIncome * 0.05);
       }
 
       else {
@@ -135,14 +135,15 @@
     }
 
     function getInsurance() {
-      document.getElementById("insurance-data").submit();
+      document.getElementById("insuranceData").submit();
 
       var clientType = document.querySelector('input[name="insuranceType"]:checked');
       var clientFirstName = document.getElementById('firstName').value;
       var clientLastname = document.getElementById('lastName').value;
       var clientName = clientFirstName + ' ' + clientLastname;
-      document.getElementById('clientName').innerText = client;
+      client = document.getElementById('clientName').innerText;
 
+      alert("clientType:" + clientType);
 
       var clientBirthday = getAge(document.getElementById('birthday').value);
       var clientOccupation = document.getElementById('occupation').value;
