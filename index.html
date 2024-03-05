@@ -26,13 +26,13 @@
           
           <label for="insuranceType">¿Qué tipo de seguro quieres?</label>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" value="car"> Auto </label>
+            <input type="radio" name="insuranceType" id="car" value="car"> Auto </input>
           </div>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" value="moto"> Moto </label>
+            <input type="radio" name="insuranceType" id="moto" value="moto"> Moto </input>
           </div>
           <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" value="tech"> Tecnología </label>
+            <input type="radio" name="insuranceType" id="tech" value="tech"> Tecnología </input>
           </div>
 
           <hr style="border:2px">
@@ -115,6 +115,7 @@
     }
 
     function getOptions() {
+      alert("getOptions()");
       var insOptions = document.getElementById('options');
 
       if (age >= 18 && age <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
@@ -143,12 +144,12 @@
       var clientName = clientFirstName + ' ' + clientLastname;
       client = document.getElementById('clientName').innerText;
 
-      alert("clientType:" + clientType);
-
       var clientBirthday = getAge(document.getElementById('birthday').value);
       var clientOccupation = document.getElementById('occupation').value;
       var clientIncome =  parseInt(document.getElementById('income').value);
       var clientValuation =  parseInt(document.getElementById('valuation').value);
+
+      alert("clientType: " + clientType + "clientName: " + clientName + "clientBirthday:" + clientBirthday + "clientOccupation:" + clientOccupation + "clientIncome:" + clientIncome + "clientValuation:" + clientValuation);
 
       getOptions();
     }
