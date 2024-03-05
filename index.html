@@ -21,19 +21,17 @@
     </h1>
 
     <div class="row">
-      <form id="insuranceData">
-        <div class="row">       
-  
-          <label for="insuranceType">¿Qué tipo de seguro quieres?</label>
-          <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" id="car" value="car" /> Auto
-          </div>
-          <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" id="moto" value="moto" /> Moto
-          </div>
-          <div class="col-lg-4 col-sm-12">
-            <input type="radio" name="insuranceType" id="tech" value="tech" /> Tecnología
-          </div>
+      <form id="insuranceData" onsubmit="test()">
+        <div class="row">         
+          <fieldset>
+            <legend>¿Qué tipo de seguro quieres?</legend>
+              <input type="radio" name="insuranceType" id="car" value="car" />
+                <label for="car">Auto</label>
+              <input type="radio" name="insuranceType" id="moto" value="moto" />
+                <label for="moto">Moto</label>
+              <input type="radio" name="insuranceType" id="tech" value="tech" />
+                <label for="tech">Tecnología</label>
+          </fieldset>
 
           <hr style="border:2px">
 
@@ -84,7 +82,7 @@
   </section>
 
   <script>
-    var insuranceType = document.querySelector('input[name="insuranceType"]:checked');
+    var insuranceType = document.querySelector("fieldset");
     var clientFirstName = document.getElementById('firstName').value;
     var clientLastname = document.getElementById('lastName').value;
     var clientName = clientFirstName + ' ' + clientLastname;
@@ -109,7 +107,7 @@
     }
 
     function createCard(style, type, coverage, commission) {
-      alert("createCard()");
+      console.log("createCard()");
       return `
         <iframe>
           <div class="card ${style}">
@@ -127,7 +125,7 @@
     }
 
     function getInsurance() {
-      alert("clientType: " + clientType);
+      console.log("insuranceType: " + insuranceType);
       var insOptions = document.getElementById('options');
 
       if (clientAge >= 18 && clientAge <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
@@ -148,6 +146,10 @@
       else {
         insOptions.innerHTML = `<h6> Lamentablemente en estos momentos no tenemos un seguro que se ajuste a tus necesidades. </h6>`;
       }
+    }
+
+    function test() {
+      e.preventDefault()
     }
     </script>
 
