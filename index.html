@@ -23,7 +23,7 @@
     <div class="row">
       <form id="insuranceData">
         <div class="row">       
-          
+  
           <label for="insuranceType">¿Qué tipo de seguro quieres?</label>
           <div class="col-lg-4 col-sm-12">
             <input type="radio" name="insuranceType" id="car" value="car" /> Auto
@@ -84,6 +84,17 @@
   </section>
 
   <script>
+    var insuranceType = document.querySelector('input[name="insuranceType"]:checked');
+    var clientFirstName = document.getElementById('firstName').value;
+    var clientLastname = document.getElementById('lastName').value;
+    var clientName = clientFirstName + ' ' + clientLastname;
+    client = document.getElementById('clientName').innerText;
+
+    var clientAge = getAge(document.getElementById('birthday').value);
+    var clientOccupation = document.getElementById('occupation').value;
+    var clientIncome =  parseInt(document.getElementById('income').value);
+    var clientValuation =  parseInt(document.getElementById('valuation').value);
+    
     function getAge(birthday) {
       var today = new Date();
       var birthDate = new Date(birthday);
@@ -98,6 +109,7 @@
     }
 
     function createCard(style, type, coverage, commission) {
+      alert("createCard()");
       return `
         <iframe>
           <div class="card ${style}">
@@ -114,44 +126,28 @@
       `;
     }
 
-    function getOptions() {
-      alert("getOptions()");
+    function getInsurance() {
+      alert("clientType: " + clientType);
       var insOptions = document.getElementById('options');
 
-      if (age >= 18 && age <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
+      if (clientAge >= 18 && clientAge <= 65 && clientIncome >= 100000 && clientValuation >= 500000 && clientValuation <= 6000000) {
+        console.log("Básico");
         insOptions.innerHTML += createCard('basic', "Básico", clientValuation * 0.3, clientIncome * 0.05);
       }
 
-      if ((insuranceType && (insuranceType.value === "car" || insuranceType.value === "moto")) && age >= 18 && age <= 80 && (clientOccupation === "employee" || clientOccupation === "pensioner") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
+      if ((insuranceType && (insuranceType.value === "car" || insuranceType.value === "moto")) && clientAge >= 18 && clientAge <= 80 && (clientOccupation === "employee" || clientOccupation === "pensioner") && clientIncome >= 1000000 && clientValuation >= 3500000 && clientValuation <= 50000000) {
+        console.log("Gold");
         insOptions.innerHTML += createCard('gold', "Gold",  clientValuation * 0.6, clientIncome * 0.05);
       }
 
-      if (age >= 18 && age <= 50 && clientOccupation === "employee" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
+      if (clientAge >= 18 && clientAge <= 50 && clientOccupation === "employee" && clientIncome >= 5000000 && clientValuation >= 5500000 && clientValuation <= 500000000) {
+        console.log("Black");
         insOptions.innerHTML += createCard('black', "Black",  clientValuation * 0.9, clientIncome * 0.05);
       }
 
       else {
         insOptions.innerHTML = `<h6> Lamentablemente en estos momentos no tenemos un seguro que se ajuste a tus necesidades. </h6>`;
       }
-    }
-
-    function getInsurance() {
-      document.getElementById("insuranceData").submit();
-
-      var clientType = document.querySelector('input[name="insuranceType"]:checked');
-      var clientFirstName = document.getElementById('firstName').value;
-      var clientLastname = document.getElementById('lastName').value;
-      var clientName = clientFirstName + ' ' + clientLastname;
-      client = document.getElementById('clientName').innerText;
-
-      var clientBirthday = getAge(document.getElementById('birthday').value);
-      var clientOccupation = document.getElementById('occupation').value;
-      var clientIncome =  parseInt(document.getElementById('income').value);
-      var clientValuation =  parseInt(document.getElementById('valuation').value);
-
-      alert("clientType: " + clientType + "clientName: " + clientName + "clientBirthday:" + clientBirthday + "clientOccupation:" + clientOccupation + "clientIncome:" + clientIncome + "clientValuation:" + clientValuation);
-
-      getOptions();
     }
     </script>
 
